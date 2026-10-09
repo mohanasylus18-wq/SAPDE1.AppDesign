@@ -242,7 +242,13 @@ const [message, setMessage] = useState("");
           <div className="form-section">
             <div className="step-number">01</div><div className="form-content"><h2>Tell the story</h2><p>Lead with what happened. Be specific, factual, and clear.</p>
               <label className="field"><span>Report title <b>Required</b></span>
-                <input placeholder="What happened in your community?" maxLength={100} value={title} onChange={(event) => setTitle(event.target.value)}/><small>0 / 100 characters</small></label>
+                
+<textarea
+  placeholder="Share what you witnessed, when it happened, who is affected, and any context that can be verified."
+  rows={7}
+  value={description}
+  onChange={(event) => setDescription(event.target.value)}
+/><small>0 / 100 characters</small></label>
               <label className="field"><span>Description & story details <b>Required</b></span><textarea placeholder="Share what you witnessed, when it happened, who is affected, and any context that can be verified."
   rows={7}
   value={description}
@@ -262,7 +268,17 @@ const [message, setMessage] = useState("");
               <div className="location-permission"><span><Icon name="location" /><span><strong>Use my current location</strong><small>Precise location is never required and can be removed before publishing.</small></span></span><Button className={`switch ${locationOn ? "on" : ""}`} onClick={() => setLocationOn(!locationOn)}><i /></Button></div>
             </div>
           </div>
-          <div className="submit-row"><Button className="outline" onClick={() => setPreview(true)}><Icon name="eye" size={17} />Preview report</Button><Button className="primary"><Icon name="arrow" size={17} />Submit for review</Button></div>
+<div className="submit-row">
+  <Button className="outline" onClick={() => setPreview(true)}>
+    <Icon name="eye" size={17} />Preview report</Button>
+  <Button className="primary" onClick={() => { if (!title.trim() || !description.trim()) { setMessage("Please enter a report title and description.");
+        return;
+      }
+      setMessage("Your report is ready for review (prototype only).");
+    }}><Icon name="arrow" size={17} />Submit for review</Button></div>
+{message && (
+  <p role="status" aria-live="polite">{message}</p>
+)}
         </main>
         <aside className="creation-aside">
           <section className="guidelines-card"><span className="guideline-icon"><Icon name="shield" /></span><small>BEFORE YOU PUBLISH</small><h3>Report responsibly</h3><ul><li><Icon name="check" size={15} />Share only what you witnessed or verified.</li><li><Icon name="check" size={15} />Protect the privacy of vulnerable people.</li><li><Icon name="check" size={15} />Avoid speculation and harmful language.</li><li><Icon name="check" size={15} />For immediate danger, contact emergency services first.</li></ul><Button className="text-link">Read community guidelines <Icon name="arrow" size={14} /></Button></section>
