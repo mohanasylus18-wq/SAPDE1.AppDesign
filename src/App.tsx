@@ -242,13 +242,14 @@ const [message, setMessage] = useState("");
           <div className="form-section">
             <div className="step-number">01</div><div className="form-content"><h2>Tell the story</h2><p>Lead with what happened. Be specific, factual, and clear.</p>
               <label className="field"><span>Report title <b>Required</b></span>
-                
 <textarea
-  placeholder="Share what you witnessed, when it happened, who is affected, and any context that can be verified."
-  rows={7}
-  value={description}
-  onChange={(event) => setDescription(event.target.value)}
-/><small>0 / 100 characters</small></label>
+  placeholder="Enter a short report title"
+  rows={3}
+  value={title}
+  onChange={(event) => setTitle(event.target.value)}
+/>
+<small>{title.length} / 100 characters</small>
+</label>
               <label className="field"><span>Description & story details <b>Required</b></span><textarea placeholder="Share what you witnessed, when it happened, who is affected, and any context that can be verified."
   rows={7}
   value={description}
