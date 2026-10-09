@@ -227,6 +227,9 @@ function CreateReport({ setScreen, locationOn, setLocationOn }: { setScreen: (sc
   const [category, setCategory] = useState("Public infrastructure");
   const [mediaType, setMediaType] = useState("upload");
   const [preview, setPreview] = useState(false);
+  const [title, setTitle] = useState("");
+const [description, setDescription] = useState("");
+const [message, setMessage] = useState("");
   return (
     <div className="create-page">
       <Button className="back-link" onClick={() => setScreen("home")}>← Back to community dashboard</Button>
