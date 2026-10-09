@@ -241,8 +241,12 @@ const [message, setMessage] = useState("");
         <main className="report-form">
           <div className="form-section">
             <div className="step-number">01</div><div className="form-content"><h2>Tell the story</h2><p>Lead with what happened. Be specific, factual, and clear.</p>
-              <label className="field"><span>Report title <b>Required</b></span><input placeholder="What happened in your community?" maxLength={100} /><small>0 / 100 characters</small></label>
-              <label className="field"><span>Description & story details <b>Required</b></span><textarea placeholder="Share what you witnessed, when it happened, who is affected, and any context that can be verified." rows={7} /><small>Include only information you can responsibly stand behind.</small></label>
+              <label className="field"><span>Report title <b>Required</b></span>
+                <input placeholder="What happened in your community?" maxLength={100} value={title} onChange={(event) => setTitle(event.target.value)}/><small>0 / 100 characters</small></label>
+              <label className="field"><span>Description & story details <b>Required</b></span><textarea placeholder="Share what you witnessed, when it happened, who is affected, and any context that can be verified."
+  rows={7}
+  value={description}
+  onChange={(event) => setDescription(event.target.value)}/><small>Include only information you can responsibly stand behind.</small></label>
             </div>
           </div>
           <div className="form-section">
