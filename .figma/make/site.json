@@ -1,0 +1,10 @@
+{
+  "description": "Guides users through calming breathing exercises paired with soothing nature sounds to enhance relaxation and mindfulness anytime, anywhere.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
